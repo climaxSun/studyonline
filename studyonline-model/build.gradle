@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':studyonline-utils')
+    compile project(':studyonline-common')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.4.0'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.23.Final'
+}

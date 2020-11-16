@@ -1,0 +1,6 @@
+rootProject.name = 'studyonline'
+include 'studyonline-utils'
+include 'studyonline-common'
+include 'studyonline-model'
+include 'studyonline-api'
+
