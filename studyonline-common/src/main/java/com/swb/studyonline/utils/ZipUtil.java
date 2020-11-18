@@ -1,7 +1,7 @@
 package com.swb.studyonline.utils;
 
 
-import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
 public class ZipUtil {
@@ -27,7 +27,7 @@ public class ZipUtil {
     public static void unzip(String zipFilePath,String password,String targetPath) throws Exception{
         ZipFile zipFile = new ZipFile(zipFilePath);
         if (zipFile.isEncrypted()) {
-            zipFile.setPassword(password);
+            zipFile.setPassword(password.toCharArray());
         }
         zipFile.extractAll(targetPath);
     }

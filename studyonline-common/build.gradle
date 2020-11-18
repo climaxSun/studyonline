@@ -1,6 +1,14 @@
 dependencies {
+    compile group: 'net.lingala.zip4j', name: 'zip4j', version: '2.6.4'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+    compile group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.4.1'
+    compile 'org.springframework.security:spring-security-crypto:5.4.1'
+    compile 'org.springframework.security:spring-security-jwt:1.1.1.RELEASE'
+    compile 'com.alibaba:fastjson:1.2.75'
+    compile 'commons-io:commons-io:2.8.0'
+    compile 'org.apache.commons:commons-lang3:3.11'
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
     compile group: 'com.google.guava', name: 'guava', version: '30.0-jre'
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.7.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign' ,version:'2.2.6.RELEASE'
 
 }

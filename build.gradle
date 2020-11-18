@@ -8,13 +8,9 @@ buildscript {
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
     }
-    // spring-boot 插件，自动寻找main()
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVision}")
-    }
+
 }
 
-apply plugin: 'org.springframework.boot'
 
 allprojects {
     group 'com.swb'
@@ -28,10 +24,7 @@ allprojects {
     }
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'eclipse'
-    apply plugin: 'maven'
 
-    apply plugin: 'io.spring.dependency-management'
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
@@ -43,8 +36,6 @@ allprojects {
     dependencies {
         compile group: 'cn.hutool', name: 'hutool-all', version: '5.4.7'
         compile group:'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVision
-        compile group:'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: springBootVision
-
         compile "org.springframework.cloud:spring-cloud-starter:3.0.0-SNAPSHOT"
 
         compile  "org.projectlombok:lombok:${lombokVision}"
@@ -66,11 +57,5 @@ subprojects {
         enabled = true
     }
 }
-dependencies {
-}
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
+

@@ -4,9 +4,9 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author Administrator
+ * @author swb
  * @version 1.0
- * @create 2018-09-12 14:59
+ * @create 2020-11-17
  **/
 @Data
 public class QueryPageRequest {

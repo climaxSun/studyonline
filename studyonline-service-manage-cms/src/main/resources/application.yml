@@ -1,0 +1,17 @@
+server:
+  port: 30001
+spring:
+  application:
+    name: studyonline-cms
+  data:
+    mongodb:
+      database: study_cms
+      uri: mongodb://admin:840068536@localhost:27017
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    com.swb: DEBUG
+  file:
+    path: ./logs/cms
