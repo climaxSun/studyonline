@@ -12,6 +12,7 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
+    org.springframework.data.mongodb.core: debug
     com.swb: DEBUG
   file:
     path: ./logs/cms

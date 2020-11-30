@@ -1,4 +1,4 @@
-package com.swb.studyonline.cms;
+package com.swb.studyonline.cms.dao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author swb
  */
-@SpringBootApplication(scanBasePackages = "com.swb.studyonline")
+@SpringBootApplication(scanBasePackages = {"com.swb.studyonline"})
 public class CmsApplication {
     public static void main(String[] args) {
         SpringApplication.run(CmsApplication.class, args);
