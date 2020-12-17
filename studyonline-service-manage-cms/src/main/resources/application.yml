@@ -6,7 +6,7 @@ spring:
   data:
     mongodb:
       database: study_cms
-      uri: mongodb://admin:840068536@localhost:27017
+      uri: mongodb://admin:password@localhost:27017
 
 logging:
   level:

@@ -3,6 +3,7 @@ package com.swb.studyonline.cms.dao.service;
 import com.swb.studyonline.cms.dao.dao.CmsPageRepository;
 import com.swb.studyonline.domain.cms.CmsPage;
 import com.swb.studyonline.domain.cms.request.QueryPageRequest;
+import com.swb.studyonline.domain.cms.response.CmsPageResult;
 import com.swb.studyonline.model.response.CommonCode;
 import com.swb.studyonline.model.response.QueryResponseResult;
 import com.swb.studyonline.model.response.QueryResult;
@@ -47,5 +48,14 @@ public class CmsPageService {
         queryResult.setTotal(all.getTotalElements());//数据总记录数
         QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
         return queryResponseResult;
+    }
+
+    public CmsPageResult addCmsPage(CmsPage cmsPage) {
+        CmsPage dbObj = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath());
+        if(dbObj==null){
+            cmsPage.setPageId(null);
+            cmsPageRepository.save(cmsPage);
+        }
+        return new CmsPageResult(CommonCode.FAIL, null);
     }
 }

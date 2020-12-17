@@ -4,8 +4,9 @@ import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -45,7 +46,8 @@ public class CmsPage {
     //状态
     private String pageStatus;
     //创建时间
-    private Date pageCreateTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime pageCreateTime;
     //模版id
     private String templateId;
     //参数列表
