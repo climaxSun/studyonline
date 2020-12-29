@@ -5,6 +5,9 @@ import com.swb.studyonline.cms.dao.service.CmsPageService;
 import com.swb.studyonline.domain.cms.CmsPage;
 import com.swb.studyonline.domain.cms.request.QueryPageRequest;
 import com.swb.studyonline.domain.cms.response.CmsPageResult;
+import com.swb.studyonline.exception.DynamicMsgException;
+import com.swb.studyonline.exception.RedisException;
+import com.swb.studyonline.exception.UserException;
 import com.swb.studyonline.model.response.QueryResponseResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +32,40 @@ public class CmsController implements CmsPageControllerApi {
         return cmsPageService.findList(page,size,queryPageRequest);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/")
     @ApiOperation("/新增一个页面")
     public CmsPageResult addCmsPage(@RequestBody CmsPage cmsPage){
         return cmsPageService.addCmsPage(cmsPage);
     }
+
+    @PutMapping("/")
+    public CmsPageResult updateCmsPage(@RequestBody CmsPage cmsPage){
+        return cmsPageService.updateCmsPage(cmsPage);
+    }
+
+    @GetMapping("/load/{id}")
+    public CmsPageResult getCmsPage(@PathVariable("id")String id){
+        return cmsPageService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public CmsPageResult delete(@PathVariable("id") String id){
+        return cmsPageService.deleteById(id);
+    }
+
+    @GetMapping("/test")
+    public void testException(){
+        throw new UserException(UserException.Type.USER_NOT_LOGIN,"用户XX未登录");
+    }
+
+    @GetMapping("/testDy")
+    public void testDyException(){
+        throw new DynamicMsgException("动态错误消息");
+    }
+
+    @GetMapping("/testOther")
+    public void testOtherException(){
+        throw new RedisException();
+    }
+
 }

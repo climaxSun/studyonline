@@ -55,7 +55,21 @@ public class CmsPageService {
         if(dbObj==null){
             cmsPage.setPageId(null);
             cmsPageRepository.save(cmsPage);
+            return new CmsPageResult(CommonCode.SUCCESS, cmsPage);
         }
         return new CmsPageResult(CommonCode.FAIL, null);
+    }
+
+    public CmsPageResult findById(String id) {
+        return new CmsPageResult(CommonCode.SUCCESS ,cmsPageRepository.findById(id).orElse(null));
+    }
+
+    public CmsPageResult deleteById(String id) {
+        cmsPageRepository.deleteById(id);
+        return new CmsPageResult(CommonCode.SUCCESS, null);
+    }
+
+    public CmsPageResult updateCmsPage(CmsPage cmsPage) {
+        return null;
     }
 }
