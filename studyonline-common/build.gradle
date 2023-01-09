@@ -1,4 +1,5 @@
 dependencies {
+    compile group:'org.springframework.boot', name: 'spring-boot-starter-web', version: SpringBootVision
     compile group: 'net.lingala.zip4j', name: 'zip4j', version: '2.6.4'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
     compile group: 'org.springframework.security', name: 'spring-security-crypto', version: '5.4.1'
